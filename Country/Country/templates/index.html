@@ -1,0 +1,44 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<div class="row">
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>id</th>
+                <th>Страна</th>
+                <th>Столица</th>
+                <th>Население</th>
+                <th>Язык</th>
+                <th>Площадь</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rowList in list %}
+            <tr>
+                <th scope="row">{{rowList["id_country"]}}</th>
+                <td>{{rowList["country"]}}</td>
+                <td>{{rowList["capital"]}}</td>
+                <td>{{rowList['population']}}</td>
+                <td>{{rowList['language']}}</td>
+                <td>{{rowList['square']}}</td>
+                <td><button><a href="{{ url_for('edit', id=rowList['id_country']) }}">Редактировать</a></button></td>
+                <td>
+                    <form action="{{ url_for('delete', id=rowList['id_country']) }}" method="POST">
+                        <button type="submit" value="Delete">Удалить</button>
+                    </form>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <button><a href="/create">Добавить страну</a></button>
+</div>
+
+
+{% endblock %}

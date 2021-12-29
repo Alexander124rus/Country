@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="inputState">Страна</label>
+        <input type="text" name="country"
+               placeholder="Название страны" class="form-control"
+               value="{{ request.form['country'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="inputCity">Столица</label>
+        <input type="text" name="capital"
+               placeholder="Название страны" class="form-control"
+               value="{{ request.form['capital'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPopulation">Население</label>
+        <input type="number" name="population"
+               placeholder="Население" class="form-control"
+               value="{{ request.form['population'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="inputLanguage">Язык</label>
+        <input type="text" name="language"
+               placeholder="Население" class="form-control"
+               value="{{ request.form['language'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="inputSquare">Площадь</label>
+        <input type="number" name="square"
+               placeholder="Население" class="form-control"
+               value="{{ request.form['square'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </div>
+
+
+
+</form>
+{% endblock %}

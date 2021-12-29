@@ -1,0 +1,65 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<h3>Страна с большей численностью населения.</h3>
+<div class="row">
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>id</th>
+                <th>Страна</th>
+                <th>Столица</th>
+                <th>Население</th>
+                <th>Язык</th>
+                <th>Площадь</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rowPopulation in populationMAX %}
+            <tr>
+                <th scope="row">{{rowPopulation["id_country"]}}</th>
+                <td>{{rowPopulation["country"]}}</td>
+                <td>{{rowPopulation["capital"]}}</td>
+                <td>{{rowPopulation['population']}}</td>
+                <td>{{rowPopulation['language']}}</td>
+                <td>{{rowPopulation['square']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+<h3>Страна с меньшей численностью населения.</h3>
+<div class="row">
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>id</th>
+                <th>Страна</th>
+                <th>Столица</th>
+                <th>Население</th>
+                <th>Язык</th>
+                <th>Площадь</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rowPopulation in populationMIN %}
+            <tr>
+                <th scope="row">{{rowPopulation["id_country"]}}</th>
+                <td>{{rowPopulation["country"]}}</td>
+                <td>{{rowPopulation["capital"]}}</td>
+                <td>{{rowPopulation['population']}}</td>
+                <td>{{rowPopulation['language']}}</td>
+                <td>{{rowPopulation['square']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+
+{% endblock %}
